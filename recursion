@@ -1,0 +1,14 @@
+import os
+def find_files(suffix, path):
+    if suffix == '':
+        return []
+    if len(os.listdir(path)) == 0:
+        return []
+    Allfiles=os.listdir(path)
+    a=[i for i in Allfiles if suffix in i]
+    Alldir=[i for i in Allfiles if '.' not in i]
+    for dir in Alldir:
+        a.extend(find_files(suffix,path=path+'/'+dir))
+    return a
+path=(os.getcwd())
+print(find_files('.c',path))
