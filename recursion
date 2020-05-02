@@ -1,7 +1,5 @@
 import os
 def find_files(suffix, path):
-    if suffix == '':
-        return []
     if len(os.listdir(path)) == 0:
         return []
     Allfiles=os.listdir(path)
